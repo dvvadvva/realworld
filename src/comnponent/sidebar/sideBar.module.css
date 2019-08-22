@@ -1,0 +1,33 @@
+
+.sidebar{
+  display: grid;
+  grid-template-areas: 
+  "e a b c d";  
+  grid-template-columns: 3fr 15fr 1fr 1fr 1fr;
+  grid-template-rows: 50px;
+}
+
+.sidebarHeader{
+  Grid-area: a;
+  align-self: center;
+  justify-self: flex-start;
+}
+
+.home{
+  grid-area: b;
+  align-self: center;
+  justify-self: flex-start;
+}
+
+.login{
+    grid-area: c;
+    align-self: center;
+    justify-self: flex-start;
+  
+  }
+  .logout{
+    grid-area: d;
+    align-self: center;
+    justify-self: flex-start;
+  
+  }

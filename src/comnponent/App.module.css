@@ -1,0 +1,12 @@
+.header2{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px;
+    background-color: cadetblue;
+  }
+
+  .gridItem{
+    align-self: center;
+    justify-self: center;
+
+  }

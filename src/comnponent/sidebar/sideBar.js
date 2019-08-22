@@ -1,37 +1,20 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
-import { reqAuth } from '../../action/loginAction'
-import { connect } from 'react-redux';
+import s from './sideBar.module.css'
 
-class SideBarAPI extends Component {
-    constructor(props){
-        super(props);
-        this.logout= this.logout.bind(this);
-    }
-
-    componentDidMount() {
-        this.props.reqAuth();
-    }
-    
-    logout(){
-        localStorage.removeItem('jwt');
-        this.props.reqAuth(false, {username: '', email: ''})
-    }
-
+class SideBar extends Component {
     render() {
-        let {isAuth, payLoad}    = this.props;
+        let { isAuth, payLoad } = this.props;
         return (
-            <div>
-                <NavLink to='/'>home</NavLink>
-                <NavLink to='/login'>{isAuth ? payLoad.username : 'login'}</NavLink>
-                <button onClick={this.logout}>logout</button>
-            </div>
+            <div className={s.sidebar}>
+                <div></div>
+                <div className={s.sidebarHeader}>Моя версия RealWorld</div>
+                <NavLink className={s.home} to='/'>Home</NavLink>
+                <NavLink className={s.login} to='/login'>{isAuth ? payLoad.username : 'login'}</NavLink>
+                <button className={s.logout} onClick={this.props.logout}>logout</button>
+            </div >
         )
     }
 }
-const mapStateToProps = (state) => ({isAuth: state.authData.isAuth,
-    payLoad: state.authData.payLoad}) 
-
-let SideBar = connect(mapStateToProps, {reqAuth})(SideBarAPI)
 
 export default SideBar

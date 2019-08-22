@@ -12,5 +12,29 @@ export const auth = {
         return axios.get('https://conduit.productionready.io/api/user',
             { headers: { Authorization: `Token ${jwt}` } }
         )
+    },
+
+    articles: (limit = 10, offset = 0) => {
+        let jwt = localStorage.getItem('jwt');
+        return axios.get(`'https://conduit.productionready.io/api/articles?limit${limit}offset=${offset}`,
+            { headers: { Authorization: `Token ${jwt}` } }
+        )
+    }
+}
+
+export const articles = {
+
+    list: (limit = 10, offset = 0) => {
+        let jwt = localStorage.getItem('jwt');
+        return axios.get(`https://conduit.productionready.io/api/articles?limit=${limit}&offset=${offset}`,
+            { headers: { Authorization: `Token ${jwt}` } }
+        )
+    }
+}
+
+export const tags = {
+
+    listTags: () => {
+        return axios.get(`https://conduit.productionready.io/api/tags`)
     }
 }

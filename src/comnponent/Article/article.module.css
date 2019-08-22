@@ -1,0 +1,36 @@
+.img {
+    width:  30px;
+    border-radius:  100px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 2fr 8fr 1fr 2fr;
+    height:  150px;
+}
+
+.username{
+    color: #5cb85c;
+}
+
+.timeCreater{
+    color: #bbb;
+    font-size: .8rem;
+    display: block;
+}
+
+.title{
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 3px;
+    display: block;
+    word-break: break-all;
+}
+
+.descr{
+    word-break: break-all;
+}
+
+.follow_btn{
+    line-height: 1.5;
+}
