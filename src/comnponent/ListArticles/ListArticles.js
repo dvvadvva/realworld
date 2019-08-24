@@ -3,9 +3,10 @@ import Article from '../Article/Article';
 
 class ListArticles extends Component {
     render() {
+        let {getOneArticle, test, articles} = this.props
         return (
             <div>
-                {this.props.articles.map((e)=> (<Article key={e.slug} article={e} test={this.props.test}/>))}
+                {articles.map((e)=> (<Article key={e.slug} article={e} test={test} getOneArticle={getOneArticle}/>))}
             </div>
         )
     }

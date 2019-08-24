@@ -29,7 +29,11 @@ export const articles = {
         return axios.get(`https://conduit.productionready.io/api/articles?limit=${limit}&offset=${offset}`,
             { headers: { Authorization: `Token ${jwt}` } }
         )
+    },
+    article: (slug)=>{
+        return axios.get(`https://conduit.productionready.io/api/articles/${slug}`)
     }
+
 }
 
 export const tags = {

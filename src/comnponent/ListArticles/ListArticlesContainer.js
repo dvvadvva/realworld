@@ -6,16 +6,19 @@ import s from './ListArticlesContainer.module.css'
 import TagsContainer from '../popularTags/popularTagContainer';
 import PagingContainer from '../paging/pagingContainer';
 
+import { getOneArticle } from '../../action/oneArticleAction'
+
 class ListArticlesContainerAPI extends Component {
     componentDidMount() {
         this.props.loadArticles();
     }
 
     render() {
+        let {getOneArticle, articles, test} = this.props;
         return (
             <div className={s.grid}>
                 <div />
-                <ListArticles articles={this.props.articles} test={this.props.test}/>
+                <ListArticles articles={articles} test={test} getOneArticle={getOneArticle}/>
                 <TagsContainer />
                 <div />
                 <PagingContainer />
@@ -27,6 +30,6 @@ class ListArticlesContainerAPI extends Component {
 
 const mapStateToProps = (state) => { return ({ articles: state.articlesData.articles }) }
 
-let ListArticlesContainer = connect(mapStateToProps, { loadArticles, test })(ListArticlesContainerAPI)
+let ListArticlesContainer = connect(mapStateToProps, { loadArticles, test, getOneArticle })(ListArticlesContainerAPI)
 
 export default ListArticlesContainer
