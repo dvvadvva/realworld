@@ -5,7 +5,7 @@
 
 .grid{
     display: grid;
-    grid-template-columns: 2fr 8fr 1fr 2fr;
+    grid-template-columns: 1fr 8fr 1fr 1fr;
     height:  150px;
 }
 
@@ -33,4 +33,34 @@
 
 .follow_btn{
     line-height: 1.5;
+    display: block;
 }
+
+  /* Heart styles */
+  .heart {
+    position: relative;
+    display: block;
+    width:10px;
+    height: 10px;
+    background: green;
+    border-radius: 0 0 0 2px;
+    transform: rotate(-45deg);
+  }
+  .heart::before,
+  .heart::after {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: green;
+    border-radius: 50%;
+  }
+  .heart::before {
+    top: -5px;
+    left: 0;
+  }
+  .heart::after {
+    top: 0;
+    right: -5px;
+  }
+  

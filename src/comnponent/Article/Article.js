@@ -4,18 +4,18 @@ import { NavLink } from 'react-router-dom';
 
 
 class Article extends Component {
-    
-    onPressFollowButton(title){
+
+    onPressFollowButton(title) {
         this.props.test();
     }
 
-    onOpenArticleBody(slug){
+    onOpenArticleBody(slug) {
         //console.log(slug);
         this.props.getOneArticle(slug);
     }
 
     render() {
-        let { title, author, createdAt, description,favoritesCount, slug } = this.props.article;
+        let { title, author, createdAt, description, favoritesCount, slug } = this.props.article;
         //console.log(this.props.article);
         return (
             <div className={s.grid}>
@@ -30,11 +30,13 @@ class Article extends Component {
                     <div className={s.descr}>
                         {description}
                     </div>
-                    <NavLink to='/article' onClick={()=>{this.onOpenArticleBody(slug)}}>перейти к статье</NavLink>
+                    <NavLink to='/article' onClick={() => { this.onOpenArticleBody(slug) }}>перейти к статье</NavLink>
                 </div>
                 <div className={s.follow_btn}>
-                    <button onClick={()=>{this.onPressFollowButton(title) }}>{favoritesCount}</button>
+                    <span className={s.heart}></span>
+                    <button onClick={() => { this.onPressFollowButton(title) }}>{favoritesCount}                    </button>
                 </div>
+
             </div>
         )
     }

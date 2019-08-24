@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import OneArticle from './oneArticle';
-/*import { loadArticles, test } from '../../action/ArticlesAction'
-import s from './ListArticlesContainer.module.css'
-import TagsContainer from '../popularTags/popularTagContainer';
-import PagingContainer from '../paging/pagingContainer'; */
 
 class OneArticleContainerAPI extends Component {
     componentDidMount() {
