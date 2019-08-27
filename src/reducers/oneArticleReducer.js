@@ -1,19 +1,18 @@
-import {LOAD_ONE_ARTICLE } from "../asets/const/const";
+import { LOAD_ONE_ARTICLE } from "../asets/const/const";
 
-let initialize  = {
+let initialize = {
     slug: '',
     title: '',
     body: '',
     tagList: [],
     description: '',
-    author: {},
+    author: {}
 };
 
-export let oneArticleReducer = (state=initialize, action)=>{
-    //console.log(action);
-    switch (action.type){
+export let oneArticleReducer = (state = initialize, action) => {
+    switch (action.type) {
         case LOAD_ONE_ARTICLE: {
-            return {...state, body: action.articleData.body, title: action.articleData.title}
+            return { ...state, body: action.articleData.body, title: action.articleData.title }
         }
         default: {
             return state

@@ -32,6 +32,16 @@ export const articles = {
     },
     article: (slug)=>{
         return axios.get(`https://conduit.productionready.io/api/articles/${slug}`)
+    },
+
+    favor: (slug)=>{
+        let jwt = localStorage.getItem('jwt');
+        return axios.post(`https://conduit.productionready.io/api/articles/${slug}/favorite`,'',{ headers: { Authorization: `Token ${jwt}` } })
+    },
+
+    unfavor: (slug)=>{
+        let jwt = localStorage.getItem('jwt');
+        return axios.delete(`https://conduit.productionready.io/api/articles/${slug}/favorite`, { headers: { Authorization: `Token ${jwt}` } })
     }
 
 }

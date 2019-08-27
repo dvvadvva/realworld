@@ -31,36 +31,70 @@
     word-break: break-all;
 }
 
-.follow_btn{
-    line-height: 1.5;
-    display: block;
+.followBtnFav{
+  border: 1px dotted white;
+  background-color: green;
+  border-radius: 3px;
 }
 
-  /* Heart styles */
-  .heart {
-    position: relative;
+.followBtnUnfav{
+  border: 1px dotted green;
+}
+
+.followBtnUnfav,
+.followBtnFav{
+  position: relative;
+    line-height: 1.5;
     display: block;
+    width: 40px;
+    height: 20px;
+}
+
+.followCounter {
+  position: absolute;
+  top:  5px;
+  left: 15px;
+  transform: rotate(45deg);
+}
+
+.heart, .heart::before, .heart::after{
+    background: white;
+ }
+
+ .heartfav, .heartfav::before, .heartfav::after{
+    background: green;
+ }
+
+
+.heart, .heart::before, .heart::after, .heartfav, .heartfav::before, .heartfav::after{
     width:10px;
     height: 10px;
-    background: green;
+ }
+
+.heart, .heartfav {
+    position: relative;
+    top: 30%;
+    left: 15%;
+    display: block;    
     border-radius: 0 0 0 2px;
     transform: rotate(-45deg);
-  }
-  .heart::before,
-  .heart::after {
+}
+
+.heart::before,
+.heart::after,
+.heartfav::before,
+.heartfav::after {
     position: absolute;
     content: "";
-    width: 10px;
-    height: 10px;
-    background: green;
     border-radius: 50%;
-  }
-  .heart::before {
+}
+
+.heart::before, .heartfav::before {
     top: -5px;
     left: 0;
-  }
-  .heart::after {
+}
+
+.heart::after, .heartfav::after {
     top: 0;
     right: -5px;
-  }
-  
+}

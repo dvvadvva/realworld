@@ -4,7 +4,6 @@ import { articles} from './dataAPI'
 export let getOneArticle = (slug) => (dispatch) => {
     articles.article(slug)
         .then((e) => {
-            //console.log(e.data);
             dispatch(loadOneArticle(e.data.article))
         })
 }

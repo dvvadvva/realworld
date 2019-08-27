@@ -14,7 +14,6 @@ class PagingContainerAPI extends Component {
 }
 
 const mapStateToProps = (state) => {
-    //console.log(state);
     return (
         {
             limit: state.articlesData.limit,

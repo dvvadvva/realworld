@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ListArticles from './ListArticles';
-import { loadArticles, test } from '../../action/ArticlesAction'
+import { loadArticles, followArticle, test } from '../../action/ArticlesAction'
 import s from './ListArticlesContainer.module.css'
 import TagsContainer from '../popularTags/popularTagContainer';
 import PagingContainer from '../paging/pagingContainer';
@@ -14,11 +14,11 @@ class ListArticlesContainerAPI extends Component {
     }
 
     render() {
-        let {getOneArticle, articles, test} = this.props;
+        let {getOneArticle, articles, test, followArticle} = this.props;
         return (
             <div className={s.grid}>
                 <div />
-                <ListArticles articles={articles} test={test} getOneArticle={getOneArticle}/>
+                <ListArticles articles={articles} test={test} getOneArticle={getOneArticle} followArticle={followArticle}/>
                 <TagsContainer />
                 <div />
                 <PagingContainer />
@@ -28,8 +28,9 @@ class ListArticlesContainerAPI extends Component {
     }
 }
 
-const mapStateToProps = (state) => { return ({ articles: state.articlesData.articles }) }
+const mapStateToProps = (state) => { 
+    return ({ articles: state.articlesData.articles }) }
 
-let ListArticlesContainer = connect(mapStateToProps, { loadArticles, test, getOneArticle })(ListArticlesContainerAPI)
+let ListArticlesContainer = connect(mapStateToProps, { loadArticles, test, getOneArticle, followArticle })(ListArticlesContainerAPI)
 
 export default ListArticlesContainer

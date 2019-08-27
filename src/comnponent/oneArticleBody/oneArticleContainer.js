@@ -3,13 +3,7 @@ import { connect } from 'react-redux';
 import OneArticle from './oneArticle';
 
 class OneArticleContainerAPI extends Component {
-    componentDidMount() {
-        //this.props.loadArticles();
-    }
-
     render() {
-        //console.log(11);
-        //console.log(this.props);
         let {article}=this.props;
         return (
             <div>

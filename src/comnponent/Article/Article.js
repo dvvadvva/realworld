@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import s from './article.module.css'
 import { NavLink } from 'react-router-dom';
 
 
-class Article extends Component {
+class Article extends PureComponent {
 
-    onPressFollowButton(title) {
-        this.props.test();
+    onPressFollowButton(slug) {
+        this.props.followArticle(slug);
     }
 
     onOpenArticleBody(slug) {
-        //console.log(slug);
         this.props.getOneArticle(slug);
     }
 
     render() {
-        let { title, author, createdAt, description, favoritesCount, slug } = this.props.article;
-        //console.log(this.props.article);
+        let { title, author, createdAt, description, favoritesCount, slug, favorited } = this.props.article;
         return (
             <div className={s.grid}>
                 <div></div>
@@ -32,9 +30,11 @@ class Article extends Component {
                     </div>
                     <NavLink to='/article' onClick={() => { this.onOpenArticleBody(slug) }}>перейти к статье</NavLink>
                 </div>
-                <div className={s.follow_btn}>
-                    <span className={s.heart}></span>
-                    <button onClick={() => { this.onPressFollowButton(title) }}>{favoritesCount}                    </button>
+                <div className={favorited ? s.followBtnFav : s.followBtnUnfav}
+                    onClick={() => { this.onPressFollowButton(slug) }}>
+                    <span className={favorited ? s.heart : s.heartfav}><span className={s.followCounter}>{favoritesCount}</span></span>
+
+                    {/*<button onClick={() => { this.onPressFollowButton(title)}}>{favoritesCount} </button> */}
                 </div>
 
             </div>
