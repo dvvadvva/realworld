@@ -7,6 +7,7 @@ import TagsContainer from '../popularTags/popularTagContainer';
 import PagingContainer from '../paging/pagingContainer';
 
 import { getOneArticle } from '../../action/oneArticleAction'
+import { getArticles } from '../../action/selectors';
 
 class ListArticlesContainerAPI extends Component {
     componentDidMount() {
@@ -29,7 +30,7 @@ class ListArticlesContainerAPI extends Component {
 }
 
 const mapStateToProps = (state) => { 
-    return ({ articles: state.articlesData.articles }) }
+    return ({ articles: getArticles(state) }) }
 
 let ListArticlesContainer = connect(mapStateToProps, { loadArticles, test, getOneArticle, followArticle })(ListArticlesContainerAPI)
 
