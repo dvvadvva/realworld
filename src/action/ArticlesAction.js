@@ -6,6 +6,7 @@ import {
   SET_FAVOR,
   SET_FAVORCOUNT
 } from "../asets/const/const";
+import { GOTO_NEXT_PAGE, GOTO_NEXT_PARTPAGE, GOTO_PREV_PAGE, GOTO_PREV_PARTPAGE } from "../reducers/articlesReducer";
 
 export const loadArticles = () => async (dispatch, getState) => {
   let e = await articles.list(
@@ -38,6 +39,22 @@ export const test = () => ({ type: TEST_ACT });
 export const setActivePage = numberPage => ({
   type: SET_ACT_PAGE,
   numberPage: numberPage
+});
+
+export const gotoNextPage = () => ({
+  type: GOTO_NEXT_PAGE
+});
+
+export const gotoPrevPage = () => ({
+  type: GOTO_PREV_PAGE
+});
+
+export const gotoNextPartPage = () => ({
+  type: GOTO_NEXT_PARTPAGE
+});
+
+export const gotoPrevPartPage = () => ({
+  type: GOTO_PREV_PARTPAGE
 });
 
 export const setFavor = slug => ({ type: SET_FAVOR, slug: slug });

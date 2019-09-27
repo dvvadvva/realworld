@@ -6,6 +6,18 @@
     word-break: break-all;
 }
 
+.tag_btn{
+    background-color: #818a91;
+    color: #fff !important;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    word-break: break-all;
+}
+
 .span2{
     padding-bottom: 3px;
     padding-left: 2px;

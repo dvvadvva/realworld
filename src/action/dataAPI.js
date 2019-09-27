@@ -22,26 +22,28 @@ export const auth = {
     }
 }
 
+const getHeaderForReq =()=>{
+    let jwt = localStorage.getItem('jwt');
+    let res = {};
+    if (jwt){ res={...res, headers: {Authorization: `Token ${jwt}`}}};
+    return res
+}
+
 export const articles = {
 
     list: (limit = 10, offset = 0) => {
-        let jwt = localStorage.getItem('jwt');
-        return axios.get(`https://conduit.productionready.io/api/articles?limit=${limit}&offset=${offset}`,
-            { headers: { Authorization: `Token ${jwt}` } }
-        )
+        return axios.get(`https://conduit.productionready.io/api/articles?limit=${limit}&offset=${offset}`, getHeaderForReq())
     },
     article: (slug)=>{
         return axios.get(`https://conduit.productionready.io/api/articles/${slug}`)
     },
 
     favor: (slug)=>{
-        let jwt = localStorage.getItem('jwt');
-        return axios.post(`https://conduit.productionready.io/api/articles/${slug}/favorite`,'',{ headers: { Authorization: `Token ${jwt}` } })
+        return axios.post(`https://conduit.productionready.io/api/articles/${slug}/favorite`,'', getHeaderForReq())
     },
 
     unfavor: (slug)=>{
-        let jwt = localStorage.getItem('jwt');
-        return axios.delete(`https://conduit.productionready.io/api/articles/${slug}/favorite`, { headers: { Authorization: `Token ${jwt}` } })
+        return axios.delete(`https://conduit.productionready.io/api/articles/${slug}/favorite`, getHeaderForReq())
     }
 
 }

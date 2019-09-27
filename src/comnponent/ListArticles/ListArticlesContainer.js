@@ -5,7 +5,6 @@ import { loadArticles, followArticle, test } from '../../action/ArticlesAction'
 import s from './ListArticlesContainer.module.css'
 import TagsContainer from '../popularTags/popularTagContainer';
 import PagingContainer from '../paging/pagingContainer';
-
 import { getOneArticle } from '../../action/oneArticleAction'
 import { getArticles } from '../../action/selectors';
 
@@ -19,11 +18,11 @@ class ListArticlesContainerAPI extends Component {
         return (
             <div className={s.grid}>
                 <div />
-                <ListArticles articles={articles} test={test} getOneArticle={getOneArticle} followArticle={followArticle}/>
-                <TagsContainer />
-                <div />
                 <PagingContainer />
                 <div />
+                <div />
+                <ListArticles articles={articles} test={test} getOneArticle={getOneArticle} followArticle={followArticle}/>
+                <TagsContainer />                
             </div>
         )
     }
